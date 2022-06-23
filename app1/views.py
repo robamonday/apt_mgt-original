@@ -7,6 +7,8 @@ def home(request):
   context = {"key" : "value"}
   return render(request, 'app1/base.html', context)
 
+# template for models
+# 
 # def details(request, statename):
 #   attractions = Attraction.objects.all()
 #   context = {"attractions" : attractions, "statename" : statename.replace("-", " ")}
