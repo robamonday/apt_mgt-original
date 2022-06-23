@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('app1.urls')), #refers to urlconf in app1   
     path('admin/', admin.site.urls),
-    # path('', include('urls.py')), #this caused an error
 ]
