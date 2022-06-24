@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Unit, Lease, LedgerEntry
+from .models import Unit #, Lease, LedgerEntry
 # from .forms import StateCreateForm, AttractionCreateForm
 # from django.views.generic.edit import ListView, CreateView
 
@@ -22,6 +22,19 @@ unit7.save()
 unit8.save()
 unit9.save()
 
+# lease1 = Lease(contact="Tenant Name", lease_rent=1200, unit=unit1)
+# lease2 = Lease(contact="Tenant Name", lease_rent=1200, unit=unit2)
+# lease3 = Lease(contact="Tenant Name", lease_rent=1200, unit=unit3)
+# lease4 = Lease(contact="Tenant Name", lease_rent=1200, unit=unit4)
+# lease5 = Lease(contact="Tenant Name", lease_rent=1200, unit=unit5)
+# lease6 = Lease(contact="Tenant Name", lease_rent=1200, unit=unit6)
+# lease1.save()
+# lease2.save()
+# lease3.save()
+# lease4.save()
+# lease5.save()
+# lease6.save()
+
 def home(request):
   context = {"key" : "value"}
   return render(request, 'app1/home.html', context)
@@ -31,7 +44,10 @@ def units(request):
   context = { "units" : units }
   return render(request, 'app1/units.html', context)
 
-
+def leases(request):
+  leases = Unit.objects.all()
+  context = { "leases" : leases }
+  return render(request, 'app1/leases.html', context)
 
 
 

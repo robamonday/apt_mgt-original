@@ -12,7 +12,7 @@ class Unit(models.Model):
 		(OCCUPIED, 'Occupied')
 		]
 	unit_number = models.CharField(max_length=15, blank=False)
-	unit_type = models.CharField(max_length=15, blank=False, default="Unknown")
+	unit_type = models.CharField(max_length=15, default="Unknown")
 	sf = models.IntegerField(default=0)
 	market_rent = models.DecimalField(max_digits=5, decimal_places=0, blank=False)
 	unit_status = models.CharField(max_length=15, choices=UNIT_STATUS_CHOICES, default=VACANT)
@@ -23,21 +23,22 @@ class Unit(models.Model):
 	# What other methods should go here?
 
 class Lease(models.Model):
-	contact = models.CharField(max_length=40, blank=False)
-	lease_rent = models.DecimalField(max_digits=5, decimal_places=0, blank=False)
-	start_date = models.DateField()
-	end_date = models.DateField()
-	unit = models.ForeignKey(Unit, null=True, on_delete=models.SET_NULL)
+	pass
 
-	def __str__(self):
-		return self.contact
+	# contact = models.CharField(max_length=40, blank=False)
+	# lease_rent = models.DecimalField(max_digits=5, decimal_places=0, blank=False)
+	# start_date = models.DateField()
+	# end_date = models.DateField()
+	# unit = models.ForeignKey(Unit, null=True, on_delete=models.SET_NULL)
+
+	# def __str__(self):
+	# 	return self.contact
 
 	# What other methods should go here?
 
 
-
-class LedgerEntry(models.Model):
-	pass	
+# class LedgerEntry(models.Model):
+# 	pass	
 
 
 

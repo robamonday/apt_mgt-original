@@ -1,0 +1,28 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'app1/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>This is a list of all Leases</h1>
+
+<table>
+  <tr>
+    <th>Contact</th>
+    <th>Lease Rent</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+  </tr>
+  {% for lease in leases %}
+  <tr>
+    <td>{{ lease.contact }}</td>
+    <td>{{ lease.lease_rent }}</td>
+    <td>{{ lease.start_date }}</td>
+    <td>{{ lease.end_date }}</td>
+  </tr>
+  {% endfor %}
+</table><br>
+
+{% endblock %}
