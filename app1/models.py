@@ -23,7 +23,18 @@ class Unit(models.Model):
 	# What other methods should go here?
 
 class Lease(models.Model):
-	pass
+	contact = models.CharField(max_length=40, blank=False)
+	lease_rent = models.DecimalField(max_digits=5, decimal_places=0, blank=False)
+	start_date = models.DateField()
+	end_date = models.DateField()
+	unit = models.ForeignKey(Unit, null=True, on_delete=models.SET_NULL)
+
+	def __str__(self):
+		return self.contact
+
+	# What other methods should go here?
+
+
 
 class LedgerEntry(models.Model):
 	pass	
