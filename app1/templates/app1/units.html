@@ -1,0 +1,52 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'app1/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>This is a list of all Units</h1>
+
+<table>
+  <tr>
+    <th>Unit #</th>
+    <th>Unit Type</th>
+    <th>SF</th>
+    <th>Market Rent</th>
+    <th>Unit Status</th>
+  </tr>
+  {% for unit in units %}
+  <tr>
+    <td>{{ unit.unit_number }}</td>
+    <td>{{ unit.unit_type }}</td>
+    <td>{{ unit.sf }}</td>
+    <td>{{ unit.market_rent }}</td>
+    <td>{{ unit.unit_status }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+  </tr>
+</table><br>
+
+{% endblock %}
+
+<!-- <table>
+  <tr>
+    <th>Unit #</th>
+    <th>State</th>
+    <th>State Details</th>
+  </tr>
+  {% for item in attractions|dictsort:'homeState.stateName' %}
+  <tr>
+    <td>{{ item.attractionName }}</td>
+    <td>{{ item.homeState }}</td>
+    <td><a href="{% url 'details' item.homeState|slugify %}">State Details</a></td>
+  </tr>
+  {% endfor %}
+</table><br>
+<a href="{% url 'statecreate' %}">Add a state</a>
+<a href="{% url 'attractioncreate' %}">Add an attraction</a> -->
